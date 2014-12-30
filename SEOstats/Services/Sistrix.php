@@ -111,7 +111,7 @@ class Sistrix extends SEOstats
     {
         if(!static::hasApiKey()) {
             self::exc('In order to use the SISTRIX API, you must obtain and set an ' .
-                      'API key first (see SEOstats\Config\ApiKeys.php).' . PHP_EOL);
+                      'API key first (see SEOstats.php).' . PHP_EOL);
         }
     }
 

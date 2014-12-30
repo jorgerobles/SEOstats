@@ -88,9 +88,9 @@ class Google extends SEOstats
 
     public static function getPagespeedAnalysis($url = false)
     {
-        if ('' == Config\ApiKeys::$GOOGLE_SIMPLE_API_ACCESS_KEY) {
+        if ('' == parent::getGoogleSimpleApiAccessKey()) {
             throw new E('In order to use the PageSpeed API, you must obtain
-                and set an API key first (see SEOstats\Config\ApiKeys.php).');
+                and set an API key first (see SEOstats.php).');
             exit(0);
         }
 

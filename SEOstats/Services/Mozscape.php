@@ -81,7 +81,7 @@ class Mozscape extends SEOstats
         if ('' == parent::getMozscapeAccessId() ||
             '' == parent::getMozscapeAccessId()) {
             throw new E('In order to use the Mozscape API, you must obtain
-                and set an API key first (see SEOstats\Config\ApiKeys.php).');
+                and set an API key first (see SEOstats.php).');
             exit(0);
         }
 
