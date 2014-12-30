@@ -88,7 +88,7 @@ class Google extends SEOstats
 
     public static function getPagespeedAnalysis($url = false)
     {
-        if ('' == Config\ApiKeys::GOOGLE_SIMPLE_API_ACCESS_KEY) {
+        if ('' == Config\ApiKeys::$GOOGLE_SIMPLE_API_ACCESS_KEY) {
             throw new E('In order to use the PageSpeed API, you must obtain
                 and set an API key first (see SEOstats\Config\ApiKeys.php).');
             exit(0);
@@ -96,7 +96,7 @@ class Google extends SEOstats
 
         $url = parent::getUrl($url);
         $url = sprintf(Config\Services::GOOGLE_PAGESPEED_URL,
-            $url, Config\ApiKeys::GOOGLE_SIMPLE_API_ACCESS_KEY);
+            $url, parent::getGoogleSimpleApiAccessKey());
 
         $ret = static::_getPage($url);
 

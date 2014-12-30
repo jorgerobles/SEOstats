@@ -87,11 +87,31 @@ class SEOstats
                      $_lastLoadedUrl
                      = false;
 
-    public function __construct($url = false)
+    // To acquire an API key, visit Google's APIs Console here:
+    //      https://code.google.com/apis/console
+    // In the Services pane, activate the "PageSpeed Insights API" (not the service!).
+    // Next, go to the API Access pane. The API key is near the bottom of that pane,
+    // in the section titled "Simple API Access.".
+    public static $google_simple_api_access_key;
+
+    // To acquire a Mozscape (f.k.a. SEOmoz) API key, visit:
+    //      https://moz.com/products/api/keys
+    public static $mozscape_access_id;
+    public static $mozscape_secret_key;
+
+    // to acquire a sistrix api key, visit:
+    //      http://www.sistrix.de
+    public static $sistrix_api_access_key;
+
+    public function __construct($url = false, $google_simple_api_access_key='', $mozscape_access_id='', $mozscape_secret_key='', $sistrix_api_access_key='')
     {
         if (false !== $url) {
             self::setUrl($url);
         }
+        self::$google_simple_api_access_key = $google_simple_api_access_key;
+        self::$mozscape_access_id = $mozscape_access_id;
+        self::$mozscape_secret_key = $mozscape_secret_key;
+        self::$sistrix_api_access_key = $sistrix_api_access_key;
     }
 
     public function Alexa()
@@ -127,6 +147,26 @@ class SEOstats
     public function Social()
     {
         return new Service\Social;
+    }
+
+    public static function getGoogleSimpleApiAccessKey()
+    {
+        return self::$google_simple_api_access_key;
+    }
+
+    public static function getMozscapeAccessId()
+    {
+        return self::$mozscape_access_id;
+    }
+
+    public static function getMozscapeSecretKey()
+    {
+        return self::$mozscape_secret_key;
+    }
+
+    public static function getSistrixApiAccessKey()
+    {
+        return self::$sistrix_api_access_key;
     }
 
     public static function getLastLoadedHtml()

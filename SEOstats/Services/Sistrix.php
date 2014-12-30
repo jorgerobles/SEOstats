@@ -69,7 +69,7 @@ class Sistrix extends SEOstats
         $domain = static::getDomainFromUrl($url);
         $database = static::getValidDatabase($db);
 
-        $dataUrl = sprintf(Config\Services::SISTRIX_API_VI_URL, Config\ApiKeys::SISTRIX_API_ACCESS_KEY, urlencode($domain), $database);
+        $dataUrl = sprintf(Config\Services::SISTRIX_API_VI_URL, parent::getSistrixApiAccessKey(), urlencode($domain), $database);
 
         $json = static::_getPage($dataUrl);
 
@@ -88,7 +88,7 @@ class Sistrix extends SEOstats
     {
         self::guardApiKey();
 
-        $dataUrl = sprintf(Config\Services::SISTRIX_API_CREDITS_URL, Config\ApiKeys::SISTRIX_API_ACCESS_KEY);
+        $dataUrl = sprintf(Config\Services::SISTRIX_API_CREDITS_URL, parent::getSistrixApiAccessKey());
         $json = static::_getPage($dataUrl);
 
         if(empty($json)) {
@@ -117,7 +117,7 @@ class Sistrix extends SEOstats
 
     protected static function hasApiKey()
     {
-        if ('' == Config\ApiKeys::SISTRIX_API_ACCESS_KEY) {
+        if ('' == parent::getSistrixApiAccessKey()) {
             return false;
         }
 
