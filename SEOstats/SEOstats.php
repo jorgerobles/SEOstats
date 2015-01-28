@@ -116,37 +116,37 @@ class SEOstats
 
     public function Alexa()
     {
-        return new Service\Alexa;
+        return new Service\Alexa(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public function Google()
     {
-        return new Service\Google;
+        return new Service\Google(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public function Mozscape()
     {
-        return new Service\Mozscape;
+        return new Service\Mozscape(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public function OpenSiteExplorer()
     {
-        return new Service\OpenSiteExplorer;
+        return new Service\OpenSiteExplorer(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public function SEMRush()
     {
-        return new Service\SemRush;
+        return new Service\SemRush(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public function Sistrix()
     {
-        return new Service\Sistrix;
+        return new Service\Sistrix(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public function Social()
     {
-        return new Service\Social;
+        return new Service\Social(self::getUrl(), self::getGoogleSimpleApiAccessKey(), self::getMozscapeAccessId(), self::getMozscapeSecretKey(), self::getSistrixApiAccessKey());
     }
 
     public static function getGoogleSimpleApiAccessKey()
