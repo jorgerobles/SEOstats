@@ -28,14 +28,14 @@ class Google extends SEOstats
     {
         // Composer autoloads classes out of the SEOstats namespace.
         // The custom autolader, however, does not. So we need to include it first.
-        if(!class_exists('\GTB_PageRank')) {
+        if(!class_exists('\GTB_PageRank',false)) {
             require_once realpath(__DIR__ . '/3rdparty/GTB_PageRank.php');
         }
 
         $gtb = new \GTB_PageRank(parent::getUrl($url));
         $result = $gtb->getPageRank();
 
-        return $result != "" ? $result : static::noDataDefaultValue();
+        return $result != "" ? (int)$result : static::noDataDefaultValue();
     }
 
     /**
