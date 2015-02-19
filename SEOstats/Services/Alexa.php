@@ -352,6 +352,9 @@ class Alexa extends SEOstats
         if ($nodeValue === null) {
             return parent::noDataDefaultValue();
         }
+        
+        if ($nodeValue === '-')
+            return parent::noDataDefaultValue();
 
         return self::retInt(strip_tags($nodeValue));
     }
